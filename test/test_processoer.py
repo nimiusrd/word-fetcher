@@ -8,11 +8,17 @@ class Processer(unittest.TestCase):
         text = [
             'https://example.com',
             'http://example.com',
-            'example.com',
+        ]
+        unremoved_text = [
+            'example.com'
         ]
         for x in text:
             with self.subTest(x=x):
                 self.assertEqual(processer.remove_url(x), '')
+
+        for x in unremoved_text:
+            with self.subTest(x=x):
+                self.assertEqual(processer.remove_url(x), x)
 
     def test_extract_word(self):
         case = [
