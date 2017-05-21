@@ -33,3 +33,22 @@ class Processer(unittest.TestCase):
     def test_is_stopwords(self):
         pass
 
+    def test_is_twitter_username(self):
+        expectTrue = [
+            '@username',
+            '@000',
+            '@0o0'
+        ]
+        expectFalse = [
+            'm@aster',
+            '@',
+            '',
+            'hoge@'
+        ]
+        for x in expectTrue:
+            with self.subTest(x=x):
+                self.assertTrue(processer.is_twitter_username(x))
+
+        for x in expectFalse:
+            with self.subTest(x=x):
+                self.assertFalse(processer.is_twitter_username(x))
