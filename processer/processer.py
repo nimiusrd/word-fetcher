@@ -19,7 +19,7 @@ def is_stopwords(word):
 
 
 def is_twitter_username(word):
-    return re.match('^@[a-zA-Z_]+', word)
+    return re.match('^@[a-zA-Z0-9_]+', word)
 
 
 def is_number(word):
