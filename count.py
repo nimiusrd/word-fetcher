@@ -6,14 +6,16 @@ with open('./data/words.json') as fp:
     data = json.load(fp)
 
 with open('./data/count.json', 'w') as fp:
-    d = data
-    for word in d:
+    d = []
+    for word in data:
         if processer.is_stopwords(word):
-            d.remove(word)
+            pass
         elif processer.is_twitter_username(word):
-            d.remove(word)
+            pass
         elif processer.is_number(word):
-            d.remove(word)
+            pass
+        else:
+            d.append(word)
     d = Counter(d)
     d = d.most_common()
     json.dump(d, fp)
