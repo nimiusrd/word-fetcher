@@ -28,3 +28,8 @@ class Processer(unittest.TestCase):
         for x in case:
             with self.subTest(x=x):
                 self.assertEqual(processer.extract_word(x['text']), x['words'])
+
+    @unittest.skip("TODO")
+    def test_is_stopwords(self):
+        pass
+
