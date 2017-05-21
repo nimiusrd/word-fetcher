@@ -58,3 +58,21 @@ class Processer(unittest.TestCase):
         for x in expectFalse:
             with self.subTest(x=x):
                 self.assertFalse(processer.is_twitter_username(x))
+
+    def test_is_number(self):
+        expectTrue = [
+            '42'
+            '2.1'
+        ]
+        expectFalse = [
+            '@a11y',
+            '1a1'
+            ''
+        ]
+        for x in expectTrue:
+            with self.subTest(x=x):
+                self.assertTrue(processer.is_number(x))
+
+        for x in expectFalse:
+            with self.subTest(x=x):
+                self.assertFalse(processer.is_number(x))
