@@ -1,6 +1,6 @@
 import json
 from collections import Counter
-from processer import processer
+import processer
 
 with open('./data/words.json') as fp:
     data = json.load(fp)

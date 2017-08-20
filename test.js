@@ -2,7 +2,7 @@ const chokidar = require('chokidar')
 const spawn = require('child_process').spawn
 
 function test() {
-  spawn('python', ['-m', 'flake8', '--exclude', './**/node_modules', '.'], { stdio: 'inherit' })
+  spawn('python', ['-m', 'flake8', '--exclude', './**/node_modules,__init__.py', '.'], { stdio: 'inherit' })
   spawn('python', ['-m', 'unittest', '-v'], { stdio: 'inherit' })
 }
 
