@@ -1,4 +1,4 @@
-from bow import bow
+import processer
 import json
 
 with open('./data/data.json') as fp:
@@ -6,8 +6,8 @@ with open('./data/data.json') as fp:
 
 words = []
 for tweet in data:
-    tweet = bow.remove_url(tweet)
-    w = bow.extract_word(tweet)
+    tweet = processer.remove_url(tweet)
+    w = processer.extract_word(tweet)
     if w:
         words.extend(w)
 
