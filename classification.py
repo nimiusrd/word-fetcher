@@ -18,6 +18,8 @@ cond = np.logical_or(
     np.logical_and(MAX_PERCENT >= percent, percent >= MIN_PERCENT)
 )
 
-result = np.where(cond, words, 0)
+result = np.where(cond, [words, counts], 0)
+result = np.array(result).T.tolist()
+
 with open('data/feature.json', 'w') as fp:
-    json.dump(list(result[result != '0']), fp)
+    json.dump([x for x in result if x[0] != '0'], fp)
